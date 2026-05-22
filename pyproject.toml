@@ -1,0 +1,32 @@
+[build-system]
+requires = ["setuptools>=64", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "verl-hardware-plugin"
+version = "0.1.0"
+description = "Multi-chip hardware platform and engine plugins for verl"
+readme = "README.md"
+requires-python = ">=3.10"
+license = {text = "Apache-2.0"}
+dependencies = [
+    "verl>=0.7.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0",
+]
+
+[project.entry-points."verl.plugins"]
+hardware = "verl_hardware_plugin"
+
+[tool.setuptools.packages.find]
+include = ["verl_hardware_plugin*"]
+
+[tool.ruff]
+line-length = 120
+
+[tool.ruff.lint]
+select = ["E", "F", "UP", "B", "I"]
+ignore = ["E731", "F405", "F403"]
